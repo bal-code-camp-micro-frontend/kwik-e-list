@@ -6,6 +6,7 @@ const app = express()
 const port = 8080
 
 const detailUrl = process.env.DETAIL_URL || 'http://localhost:8080'
+console.log("using detail url: " + detailUrl)
 
 app.use(express.static('public'))
 
