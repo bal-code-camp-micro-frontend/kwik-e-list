@@ -6,8 +6,8 @@ const data = require('./data.json');
 const app = express()
 const port = 8080
 
-const detailUrl = process.env.DETAIL_URL || 'http://localhost:8080'
-console.log("using detail url: " + detailUrl)
+const detailUrl = process.env.DETAIL_URL || 'http://localhost:8080/d/product/'
+console.log("Using detail url => " + detailUrl)
 
 app.use(express.static('public'))
 
@@ -18,9 +18,11 @@ app.engine('hbs', exphbs({
 
 app.set('view engine', 'hbs');
 
-app.get('/', (req, res) => {
+var router = express.Router()
+
+router.get('/', (req, res) => {
     let list = data.map(item => {
-        item.href = detailUrl + '/product/' + item.id
+        item.href = detailUrl + item.id
         return item
     })
     if (req.query.search) {
@@ -31,9 +33,9 @@ app.get('/', (req, res) => {
         search: req.query.search,
         products: list
     });
-})
+});
 
-app.get('/recommendations/:id', (req, res) => {
+router.get('/recommendations/:id', (req, res) => {
     const id = req.params.id
     if (!id) {
         res.status(400).send('ID is missing')
@@ -45,7 +47,7 @@ app.get('/recommendations/:id', (req, res) => {
     }
     let list = data
         .map(item => {
-            item.href = detailUrl + '/product/' + item.id
+            item.href = detailUrl + item.id
             return item
         })
         .filter(item => item.type === product.type)
@@ -55,11 +57,13 @@ app.get('/recommendations/:id', (req, res) => {
     });
 })
 
+app.use('/l', router)
+
 app.get('/healthz', (_, res) => {
     res.send('ok')
 })
 
 app.listen(port, () => {
-    console.log(`Homepage => http://localhost:${port}`)
-    console.log(`Recommendations => http://localhost:${port}/recommendations/1`)
+    console.log(`Homepage => http://localhost:${port}/l`)
+    console.log(`Recommendations => http://localhost:${port}/l/recommendations/1`)
 })
