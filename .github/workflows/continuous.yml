@@ -33,4 +33,4 @@ jobs:
             --organisation "bal-code-camp-micro-frontend" \
             --repository-name "okd4-deployment" \
             --file "kwik-e-list/values.yaml" \
-            --values "{kwik-e-list.image.tag: ${{ github.sha }}}"
+            --values "{frontend.image.tag: ${{ github.sha }}}"
