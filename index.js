@@ -5,7 +5,8 @@ const data = require('./data.json');
 const app = express()
 const port = 8080
 
-const detailUrl = process.env.DETAIL_URL || 'http://localhost:3000'
+const detailUrl = process.env.DETAIL_URL || 'http://localhost:8080'
+console.log("using detail url: " + detailUrl)
 
 app.use(express.static('public'))
 
@@ -26,6 +27,10 @@ app.get('/', (req, res) => {
         list = data.filter(item => item.name.toLowerCase().includes(searchTerm))
     }
     res.render('home', { search: req.query.search, products: list });
+})
+
+app.get('/healthz', (_, res) => {
+    res.send('ok')
 })
 
 app.listen(port, () => {
