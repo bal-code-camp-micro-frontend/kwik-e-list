@@ -9,8 +9,6 @@ const port = 8080
 const detailUrl = process.env.DETAIL_URL || 'http://localhost:8080/d/product/'
 console.log("Using detail url => " + detailUrl)
 
-app.use(express.static('public'))
-
 app.engine('hbs', exphbs({
     defaultLayout: 'main',
     extname: '.hbs'
@@ -19,6 +17,8 @@ app.engine('hbs', exphbs({
 app.set('view engine', 'hbs');
 
 var router = express.Router()
+
+router.use(express.static('public'))
 
 router.get('/', (req, res) => {
     let list = data.map(item => {
