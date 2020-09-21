@@ -1,1 +1,38 @@
-<h1>Bubu</h1>
+<h1>Our Products</h1>
+<div class="row">
+    <form class="col s12" method="GET" action="/">
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">search</i>
+                <input id="search" name="search" type="text" value="{{search}}" placeholder="Search your products" />
+            </div>
+            <div class="input-field col s6">
+                <button type="submit" class="waves-effect waves-light btn">Search</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="row">
+
+    {{#each products}}
+    <div class="col s12 m4 l3">
+        <div class="card medium">
+            <div class="card-image" style="max-height: 50%">
+                <img src="{{this.imageUrl}}" />
+            </div>
+            <div class="card-content">
+                <span class="card-title" style="font-size: 21px; ">{{this.name}}</span>
+                <p>CHF {{this.price}}</p><br>
+                <p><a href="{{detailUrl}}/{{this.id}}">Detail</a></p>
+            </div>
+            <div class="card-action">
+                <a href="#">Add to Checkout</a>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <h3>No Results</h3>
+    <img src="https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2F05f43d38-e7c1-11e5-b34f-8cb8b003b8aa.jpg?crop=1429%2C804%2C45%2C12&resize=400"
+        alt="no-data" style="width: 400px;">
+    {{/each}}
+</div>
