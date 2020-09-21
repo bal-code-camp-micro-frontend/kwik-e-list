@@ -1,21 +1,5 @@
-{{> header }}
-
 <div class="container">
-    <h1>Our Products</h1>
-    <div class="row">
-        <form class="col s12" method="GET" action="/">
-            <div class="row">
-                <div class="input-field col s6">
-                    <i class="material-icons prefix">search</i>
-                    <input id="search" class="" name="search" type="text" value="{{search}}"
-                        placeholder="Search your products" />
-                </div>
-                <div class="input-field col s6">
-                    <button type="submit" class="waves-effect waves-light btn orange">Search</button>
-                </div>
-            </div>
-        </form>
-    </div>
+    <h3>Recommendations</h3>
     <div class="row">
 
         {{#each products}}
@@ -45,5 +29,3 @@
         {{/each}}
     </div>
 </div>
-
-{{> footer }}
