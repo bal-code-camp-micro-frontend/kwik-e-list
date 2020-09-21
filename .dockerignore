@@ -1,0 +1,7 @@
+*
+!public/
+!views/
+!package.json
+!package-lock.json
+!index.js
+!data.json

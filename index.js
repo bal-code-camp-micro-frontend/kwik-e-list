@@ -3,7 +3,7 @@ const express = require('express')
 const exphbs = require('express-handlebars');
 const data = require('./data.json');
 const app = express()
-const port = 3000
+const port = 8080
 
 const detailUrl = process.env.DETAIL_URL || 'http://localhost:8080'
 
