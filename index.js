@@ -6,9 +6,6 @@ const data = require('./data.json');
 const app = express()
 const port = 8080
 
-const detailUrl = process.env.DETAIL_URL || 'http://localhost:8080/d/product/'
-console.log("Using detail url => " + detailUrl)
-
 app.engine('hbs', exphbs({
     defaultLayout: 'main',
     extname: '.hbs'
@@ -21,10 +18,7 @@ var router = express.Router()
 router.use(express.static('public'))
 
 router.get('/', (req, res) => {
-    let list = data.map(item => {
-        item.href = detailUrl + item.id
-        return item
-    })
+    let list = data
     if (req.query.search) {
         const searchTerm = req.query.search.toLowerCase()
         list = data.filter(item => item.name.toLowerCase().includes(searchTerm))
@@ -46,10 +40,6 @@ router.get('/recommendations/:id', (req, res) => {
         res.status(404).send('Product not found')
     }
     let list = data
-        .map(item => {
-            item.href = detailUrl + item.id
-            return item
-        })
         .filter(item => item.type === product.type)
         .slice(0, 4)
     res.render('recommendations', {

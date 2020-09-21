@@ -3,7 +3,7 @@
 <div class="container">
     <h1>Our Products</h1>
     <div class="row">
-        <form class="col s12" method="GET" action="/">
+        <form class="col s12" method="GET" action="/l/">
             <div class="row">
                 <div class="input-field col s6">
                     <i class="material-icons prefix">search</i>
@@ -28,7 +28,7 @@
                     <span class="card-title" style="font-size: 21px; ">{{this.name}}</span>
                     <p>CHF {{this.price}}</p><br>
 
-                    <p><a href="{{this.href}}">Detail</a></p>
+                    <p><a href="/d/product/{{this.id}}">Detail</a></p>
                 </div>
                 <div class="card-action">
                     <a href="#">
