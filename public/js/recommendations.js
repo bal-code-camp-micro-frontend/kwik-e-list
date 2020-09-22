@@ -1,10 +1,15 @@
 class Recommendations extends HTMLElement {
     render(data) {
-            var result = `<h4>Recommendations</h4>
+        var result = `
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link href="/l/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+        <link href="/l/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+
+        <h4>Recommendations</h4>
             <div class="row">`
 
-            for (var product of data) {
-                result = result + `
+        for (var product of data) {
+            result = result + `
                     <div class="col s12 m6 l4 xl3">
                         <div class="card medium">
                             <div class="card-image" style="max-height: 50%">
@@ -24,17 +29,22 @@ class Recommendations extends HTMLElement {
                         </div>
                     </div>
                 `
-            }
-            result = result  + `</div>`;
-            this.innerHTML = result;
+        }
+        result = result + `</div>
+
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="/l/js/materialize.js"></script>`;
+
+        this.shadowRoot.innerHTML = result;
     }
 
     connectedCallback() {
         const id = this.getAttribute("productId");
-        this.innerHTML = `
+        this.attachShadow({mode: "open"});
+        this.shadowRoot.innerHTML = `
          <div> Loading ... </div>
         `;
-        fetch('/l/api/recommendations/'+id)
+        fetch('/l/api/recommendations/' + id)
             .then(response => response.json())
             .then(data => this.render(data));
     }
@@ -42,4 +52,5 @@ class Recommendations extends HTMLElement {
     disconnectedCallback() {
     }
 }
+
 window.customElements.define("l-recommendations", Recommendations);
