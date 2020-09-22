@@ -3,7 +3,7 @@
 const express = require('express')
 const exphbs = require('express-handlebars');
 const nocache = require('nocache')
-const { renderHome, renderRecommendations, findAllProducts, findAllRecommendations } = require('./api');
+const {renderHome, renderRecommendations, renderRecommendationsSkeleton, findAllProducts, findAllRecommendations} = require('./api');
 const data = require('./data.json');
 const app = express()
 const port = 8080
@@ -19,6 +19,7 @@ const router = express.Router()
 router.use(express.static('public'))
 router.get('/', nocache(), renderHome);
 router.get('/recommendations/:id', nocache(), renderRecommendations)
+router.get('/recommendations-skeleton', renderRecommendationsSkeleton)
 app.use('/l', router)
 
 const apiRouter = express.Router()

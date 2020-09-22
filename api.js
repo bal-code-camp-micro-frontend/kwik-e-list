@@ -14,6 +14,12 @@ module.exports.renderRecommendations = (req, res) => {
     });
 }
 
+module.exports.renderRecommendationsSkeleton = (req, res) => {
+    res.render('recommendations-skeleton', {
+        layout: 'includes'
+    });
+}
+
 module.exports.findAllProducts = (req, res) => {
     res.json(filterProducts(req.query.search));
 }
