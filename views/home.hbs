@@ -20,20 +20,18 @@
 
         {{#each products}}
         <div class="col s12 m4 l3">
-            <div class="card medium">
+            <a href="/d/product/{{this.id}}" class="card medium" style="display: block;">
                 <div class="card-image" style="max-height: 50%">
                     <img src="{{this.imageUrl}}" />
                 </div>
                 <div class="card-content">
-                    <span class="card-title" style="font-size: 21px; ">{{this.name}}</span>
-                    <p>CHF {{this.price}}</p><br>
-
-                    <p><a href="/d/product/{{this.id}}">Detail</a></p>
+                    <span class="card-title grey-text text-darken-3" style="font-size: 21px;">{{this.name}}</span>
+                    <p class="grey-text text-darken-3">CHF {{this.price}}</p><br>
                 </div>
                 <div class="card-action">
                     <c-add-to-cart-button product-id="{{this.id}}"></c-add-to-cart-button>
                 </div>
-            </div>
+            </a>
         </div>
         {{else}}
         <h3>No Results</h3>
