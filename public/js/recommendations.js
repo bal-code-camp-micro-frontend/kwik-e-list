@@ -21,10 +21,7 @@ class Recommendations extends HTMLElement {
                                 <p><a href="/d/product/${product.id}">Detail</a></p>
                             </div>
                             <div class="card-action">
-                                <a href="#">
-                                    <i class="material-icons left">add_shopping_cart</i>
-                                    Add to cart
-                                </a>
+                                <c-add-to-cart-button product_id="${product.id}"></c-add-to-cart-button>
                             </div>
                         </div>
                     </div>
