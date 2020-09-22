@@ -2,6 +2,7 @@
 
 const express = require('express')
 const exphbs = require('express-handlebars');
+const nocache = require('nocache')
 const { renderHome, renderRecommendations, findAllProducts, findAllRecommendations } = require('./api');
 const data = require('./data.json');
 const app = express()
@@ -16,11 +17,12 @@ app.set('view engine', 'hbs');
 
 const router = express.Router()
 router.use(express.static('public'))
-router.get('/', renderHome);
-router.get('/recommendations/:id', renderRecommendations)
+router.get('/', nocache(), renderHome);
+router.get('/recommendations/:id', nocache(), renderRecommendations)
 app.use('/l', router)
 
 const apiRouter = express.Router()
+apiRouter.use(nocache())
 apiRouter.get('/product', findAllProducts)
 apiRouter.get('/recommendations/:id', findAllRecommendations)
 app.use('/l/api', apiRouter)
