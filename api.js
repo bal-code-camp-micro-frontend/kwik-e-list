@@ -9,7 +9,7 @@ module.exports.renderHome = (req, res) => {
 
 module.exports.renderRecommendations = (req, res) => {
     res.render('recommendations', {
-        products: filterRecommendations(req.params.id, res),
+        id: req.params.id,
         layout: 'includes'
     });
 }
