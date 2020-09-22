@@ -32,15 +32,12 @@ class Recommendations extends HTMLElement {
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="/l/js/materialize.js"></script>`;
 
+        this.attachShadow({mode: "open"});
         this.shadowRoot.innerHTML = result;
     }
 
     connectedCallback() {
         const id = this.getAttribute("productId");
-        this.attachShadow({mode: "open"});
-        this.shadowRoot.innerHTML = `
-         <div> Loading ... </div>
-        `;
         fetch('/l/api/recommendations/' + id)
             .then(response => response.json())
             .then(data => this.render(data));
