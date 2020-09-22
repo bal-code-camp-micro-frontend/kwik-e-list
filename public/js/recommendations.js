@@ -11,19 +11,18 @@ class Recommendations extends HTMLElement {
         for (var product of data) {
             result = result + `
                     <div class="col s12 m6 l4 xl3">
-                        <div class="card medium">
+                        <a href="/d/product/${product.id}" class="card medium" style="display: block;">
                             <div class="card-image" style="max-height: 50%">
                                 <img src="${product.imageUrl}" />
                             </div>
                             <div class="card-content">
-                                <span class="card-title" style="font-size: 21px; ">${product.name}</span>
-                                <p>CHF ${product.price}</p><br>
-                                <p><a href="/d/product/${product.id}">Detail</a></p>
+                                <span class="card-title grey-text text-darken-3" style="font-size: 21px;">${product.name}</span>
+                                <p class="grey-text text-darken-3">CHF ${product.price}</p><br>
                             </div>
                             <div class="card-action">
                                 <c-add-to-cart-button product-id="${product.id}"></c-add-to-cart-button>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 `
         }
