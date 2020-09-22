@@ -223,13 +223,6 @@
     "imageUrl": "https://static.simpsonswiki.com/images/7/70/Krusty_Beef_Jerky.jpg"
   },
   {
-    "id": 33,
-    "type": "food",
-    "name": "Krusty's Circus Style Marshmallows",
-    "imageUrl": "https://static.simpsonswiki.com/images/thumb/f/f9/Krusty%27s_Circus_Style_Marshmallows.png/800px-Krusty%27s_Circus_Style_Marshmallows.png",
-    "price": "10.00"
-  },
-  {
     "id": 34,
     "type": "food",
     "name": "Krusty's Maple Syrup",
