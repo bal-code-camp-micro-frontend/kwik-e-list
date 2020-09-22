@@ -28,6 +28,7 @@ app.use('/l/api', apiRouter)
 app.get('/healthz', (_, res) => res.send('ok'))
 
 app.listen(port, () => {
+    console.log(`healthz => http://localhost:${port}/healthz`)
     console.log(`Homepage => http://localhost:${port}/l`)
     console.log(`Recommendations => http://localhost:${port}/l/recommendations/1`)
     console.log(`API => http://localhost:${port}/l/api/product`)
