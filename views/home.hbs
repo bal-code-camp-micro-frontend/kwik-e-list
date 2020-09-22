@@ -21,20 +21,15 @@
         {{#each products}}
         <div class="col s12 m4 l3">
             <div class="card medium">
-                <div class="card-image" style="max-height: 50%">
+                <a href="/d/product/{{this.id}}" class="card-image" style="max-height: 50%; display:block;">
                     <img src="{{this.imageUrl}}" />
-                </div>
-                <div class="card-content">
-                    <span class="card-title" style="font-size: 21px; ">{{this.name}}</span>
-                    <p>CHF {{this.price}}</p><br>
-
-                    <p><a href="/d/product/{{this.id}}">Detail</a></p>
-                </div>
+                </a>
+                <a href="/d/product/{{this.id}}" class="card-content" style="display:block;">
+                    <span class="card-title grey-text text-darken-3" style="font-size: 21px;">{{this.name}}</span>
+                    <p class="grey-text text-darken-3">CHF {{this.price}}</p><br>
+                </a>
                 <div class="card-action">
-                    <a href="#">
-                        <i class="material-icons left">add_shopping_cart</i>
-                        Add to cart
-                    </a>
+                    <c-add-to-cart-button product-id="{{this.id}}"></c-add-to-cart-button>
                 </div>
             </div>
         </div>
