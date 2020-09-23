@@ -1,6 +1,7 @@
 const listPagesTemplate = document.createElement('template');
 listPagesTemplate.innerHTML = `
-<h1>hello list</h1>`;
+<h1>welcome</h1>
+<a href="/product/1">Product 1</a>`;
 
 class ListPages extends HTMLElement {
 
