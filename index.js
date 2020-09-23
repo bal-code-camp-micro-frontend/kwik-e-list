@@ -4,7 +4,6 @@ const express = require('express')
 const exphbs = require('express-handlebars');
 const nocache = require('nocache')
 const {renderHome, renderRecommendations, renderRecommendationsSkeleton, findAllProducts, findAllRecommendations} = require('./api');
-const data = require('./data.json');
 const app = express()
 const port = 8080
 
