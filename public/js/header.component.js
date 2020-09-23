@@ -30,4 +30,3 @@ class ListHeaderComponent extends HTMLElement {
 }
 
 customElements.define('l-header', ListHeaderComponent);
-console.log('defined l-header')

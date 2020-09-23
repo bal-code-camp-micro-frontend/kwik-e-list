@@ -21,7 +21,7 @@ module.exports.renderRecommendationsSkeleton = (req, res) => {
 }
 
 module.exports.findAllProducts = (req, res) => {
-    res.json(filterProducts(req.query.search));
+    res.json(filterProducts(req.query.search) || []);
 }
 
 module.exports.findAllRecommendations = (req, res) => {

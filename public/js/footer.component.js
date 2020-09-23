@@ -68,4 +68,3 @@ class ListFooterComponent extends HTMLElement {
 }
 
 customElements.define('l-footer', ListFooterComponent);
-console.log('defined l-footer')
