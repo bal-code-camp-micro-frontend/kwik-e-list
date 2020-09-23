@@ -1,6 +1,7 @@
 import './header.component.js';
 import './footer.component.js';
 import './recommendations.js';
+import './product-card.js';
 
 const listPagesTemplate = document.createElement('template');
 listPagesTemplate.innerHTML = `
@@ -8,10 +9,9 @@ listPagesTemplate.innerHTML = `
 <link href="/l/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
 
 <l-header></l-header>
-
 <div class="container">
     <h1>Our Products</h1>
-
+    
     <div class="card-list">
         <div class="row">
             <div class="col s12 m6 l4 xl3">
@@ -48,9 +48,11 @@ class ListPages extends HTMLElement {
 
     renderCardItems(list) {
         const listHtml = list.map(item => {
-            return `<span>${item.name}</span>`
+            return `<div class="col s12 m6 l4 xl3"><l-product-card product-id="${item.id}" product-image-url="${item.imageUrl}"  product-name="${item.name}" product-prce="">${item.price}</l-product-card></div>`
         })
-        this.shadowRoot.querySelector('div.card-list').innerHTML = listHtml
+
+        this.shadowRoot.querySelector('div.card-list .row').innerHTML = listHtml.join("");
+
     }
 }
 

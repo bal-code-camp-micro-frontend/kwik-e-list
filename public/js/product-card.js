@@ -1,7 +1,7 @@
 const procuctCardTemplate = document.createElement('template');
 procuctCardTemplate.innerHTML = `
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link href="/c/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="/l/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     
     <div class="card medium">
         <a href="" class="card-image" style="max-height: 50%; display:block;">
