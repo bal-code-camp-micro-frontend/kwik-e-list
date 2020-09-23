@@ -12,10 +12,10 @@ class Recommendations extends HTMLElement {
             result = result + `
                     <div class="col s12 m6 l4 xl3">
                         <div class="card medium" style="display: block;">
-                            <a href="/d/product/${product.id}" class="card-image" style="max-height: 50%; display:block;">
+                            <a href="/product/${product.id}" class="card-image" style="max-height: 50%; display:block;">
                                 <img src="${product.imageUrl}" />
                             </a>
-                            <a href="/d/product/${product.id}" class="card-content" style="display:block;">
+                            <a href="/product/${product.id}" class="card-content" style="display:block;">
                                 <span class="card-title grey-text text-darken-3" style="font-size: 21px;">${product.name}</span>
                                 <p class="grey-text text-darken-3">CHF ${product.price}</p><br>
                             </a>
