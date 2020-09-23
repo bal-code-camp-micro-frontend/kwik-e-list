@@ -48,7 +48,7 @@ class ListPages extends HTMLElement {
 
     renderCardItems(list) {
         const listHtml = list.map(item => {
-            return `<div class="col s12 m6 l4 xl3"><l-product-card product-id="${item.id}" product-image-url="${item.imageUrl}"  product-name="${item.name}" product-prce="">${item.price}</l-product-card></div>`
+            return `<div class="col s12 m6 l4 xl3"><l-product-card product-id="${item.id}" product-image-url="${item.imageUrl}"  product-name="${item.name}" product-price="${item.price}"></l-product-card></div>`
         })
 
         this.shadowRoot.querySelector('div.card-list .row').innerHTML = listHtml.join("");
