@@ -35,6 +35,7 @@ class ProductCard extends HTMLElement {
     }
 
     fillAnchorWithUrl(item, productId) {
+
         item.setAttribute("href", "/product/"+productId);
     }
 
@@ -46,11 +47,10 @@ class ProductCard extends HTMLElement {
         this.shadowRoot.querySelector("img").setAttribute("src", this.productImageUrl);
         this.shadowRoot.querySelector("c-add-to-cart-button").setAttribute("product-id", this.productId);
         var allAnchors = this.shadowRoot.querySelectorAll("a");
+        const url = "/product/"+this.productId;
         allAnchors.forEach(function(item) {
-            this.fillAnchorWithUrl(item, this.productId);
+            item.setAttribute("href", url);
         });
-
-        //.setAttribute("href", "/d/product/"+this.productId)
     }
 
 
