@@ -34,6 +34,11 @@ class ProductCard extends HTMLElement {
         return this.getAttribute('product-image-url');
     }
 
+    fillAnchorWithUrl(item, productId) {
+
+        item.setAttribute("href", "/product/"+productId);
+    }
+
     connectedCallback() {
         this.attachShadow({ mode: 'open' });
         this.shadowRoot.appendChild(procuctCardTemplate.content.cloneNode(true));
@@ -41,8 +46,13 @@ class ProductCard extends HTMLElement {
         this.shadowRoot.querySelector("p").innerHTML = "CHF " + this.productPrice;
         this.shadowRoot.querySelector("img").setAttribute("src", this.productImageUrl);
         this.shadowRoot.querySelector("c-add-to-cart-button").setAttribute("product-id", this.productId);
-        this.shadowRoot.querySelectorAll("a").setAttribute("href", "/d/product/"+this.productId)
+        var allAnchors = this.shadowRoot.querySelectorAll("a");
+        const url = "/product/"+this.productId;
+        allAnchors.forEach(function(item) {
+            item.setAttribute("href", url);
+        });
     }
+
 
     disconnectedCallback() {
     }
