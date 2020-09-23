@@ -1,5 +1,6 @@
 import './header.component.js';
 import './footer.component.js';
+import './recommendations.js';
 
 const listPagesTemplate = document.createElement('template');
 listPagesTemplate.innerHTML = `
@@ -7,21 +8,24 @@ listPagesTemplate.innerHTML = `
 <link href="/l/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
 
 <l-header></l-header>
-<h1>Our Products</h1>
 
-<div class="card-list">
-    <div class="row">
-        <div class="col s12 m6 l4 xl3">
-            <div class="card medium grey lighten-3"></div>
-        </div>
-        <div class="col s12 m6 l4 xl3">
-            <div class="card medium grey lighten-3"></div>
-        </div>
-        <div class="col s12 m6 l4 xl3">
-            <div class="card medium grey lighten-3"></div>
-        </div>
-        <div class="col s12 m6 l4 xl3">
-            <div class="card medium grey lighten-3"></div>
+<div class="container">
+    <h1>Our Products</h1>
+
+    <div class="card-list">
+        <div class="row">
+            <div class="col s12 m6 l4 xl3">
+                <div class="card medium grey lighten-3"></div>
+            </div>
+            <div class="col s12 m6 l4 xl3">
+                <div class="card medium grey lighten-3"></div>
+            </div>
+            <div class="col s12 m6 l4 xl3">
+                <div class="card medium grey lighten-3"></div>
+            </div>
+            <div class="col s12 m6 l4 xl3">
+                <div class="card medium grey lighten-3"></div>
+            </div>
         </div>
     </div>
 </div>
