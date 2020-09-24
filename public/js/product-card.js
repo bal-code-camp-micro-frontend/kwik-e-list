@@ -11,8 +11,9 @@ procuctCardTemplate.innerHTML = `
             <span class="card-title grey-text text-darken-3" style="font-size: 21px;"></span>
             <p class="grey-text text-darken-3"></p><br>
         </a>
-    <div class="card-action">
-        <c-add-to-cart-button></c-add-to-cart-button>
+        <div class="card-action">
+            <c-add-to-cart-button></c-add-to-cart-button>
+        </div>
     </div>
     `;
 
@@ -45,23 +46,21 @@ class ProductCard extends HTMLElement {
         this.shadowRoot.querySelector("p").innerHTML = "CHF " + this.productPrice;
         this.shadowRoot.querySelector("img").setAttribute("src", this.productImageUrl);
         this.shadowRoot.querySelector("c-add-to-cart-button").setAttribute("product-id", this.productId);
-        var allAnchors = this.shadowRoot.querySelectorAll("a");
+        const allAnchors = this.shadowRoot.querySelectorAll("a");
         const url = "/product/" + this.productId;
-        allAnchors.forEach(function (item) {
-            item.setAttribute("href", url);
-        });
-
-        this.shadowRoot.addEventListener("click", (e) => {
-            if (e.target.nodeName === "A") {
-                const href = e.target.getAttribute("href");
+        allAnchors.forEach(function (anchor) {
+            anchor.setAttribute("href", url);
+            anchor.addEventListener("click", (e) => {
                 this.dispatchEvent(new CustomEvent('a:location:changed', {
                     bubbles: true,
                     composed: true,
-                    detail: { href: href }
+                    detail: { href: "/product/" + productId }
                 }));
                 e.preventDefault();
-            }
+            });
         });
+
+
     }
 
 
