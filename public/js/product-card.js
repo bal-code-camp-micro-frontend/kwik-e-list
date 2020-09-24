@@ -51,7 +51,7 @@ class ProductCard extends HTMLElement {
         allAnchors.forEach(function (anchor) {
             anchor.setAttribute("href", url);
             anchor.addEventListener("click", (e) => {
-                this.dispatchEvent(new CustomEvent('a:location:changed', {
+                window.dispatchEvent(new CustomEvent('a:location:changed', {
                     bubbles: true,
                     composed: true,
                     detail: { href: "/product/" + productId }
