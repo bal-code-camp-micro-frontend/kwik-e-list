@@ -21,7 +21,9 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-handlebars": "^5.1.0",
-    "nocache": "^2.1.0"
+    "nocache": "^2.1.0",
+    "single-spa-html": "^1.1.2",
+    "webpack": "^4.44.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.8",

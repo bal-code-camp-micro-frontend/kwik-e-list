@@ -51,8 +51,6 @@ class ProductCard extends HTMLElement {
         allAnchors.forEach(function (anchor) {
             anchor.setAttribute("href", href);
             anchor.addEventListener("click", (e) => {
-                e.preventDefault();
-                e.stopPropagation();
                 window.dispatchEvent(new CustomEvent('a:location:changed', {
                     bubbles: true,
                     composed: true,
