@@ -6,3 +6,5 @@
 !index.js
 !api.js
 !data.json
+!src/
+!webpack.config.js

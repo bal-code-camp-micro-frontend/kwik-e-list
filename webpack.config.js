@@ -1,10 +1,11 @@
 const path = require("path");
 
 module.exports = {
+    entry: './src/pages.js',
     output: {
-        filename: `index.js`,
+        filename: `pages.js`,
         libraryTarget: "system",
-        path: path.resolve(process.cwd(), "dist"),
+        path: path.resolve(process.cwd(), "public/js"),
         jsonpFunction: `webpackJsonp_sspahtmlwithjs`,
     },
     module: {
@@ -51,4 +52,7 @@ module.exports = {
         disableHostCheck: true,
     },
     externals: ["single-spa"],
+    optimization: {
+        minimize: false
+    },
 };

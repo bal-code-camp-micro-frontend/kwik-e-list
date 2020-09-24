@@ -1,6 +1,5 @@
 import './header.component.js';
 import './footer.component.js';
-import './recommendations.js';
 import './product-card.js';
 
 const listPagesTemplate = document.createElement('template');
@@ -109,3 +108,11 @@ class ListPages extends HTMLElement {
 }
 
 customElements.define('l-pages', ListPages);
+
+import singleSpaHtml from 'single-spa-html';
+const htmlLifecycles = singleSpaHtml({
+    template: '<l-pages></l-pages>',
+})
+export const bootstrap = htmlLifecycles.bootstrap;
+export const mount = htmlLifecycles.mount;
+export const unmount = htmlLifecycles.unmount;
