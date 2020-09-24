@@ -52,7 +52,6 @@ class ProductCard extends HTMLElement {
         });
 
         document.addEventListener("click", (e) => {
-            console.log("app-shell click");
             if (e.target.nodeName === "A") {
                 const href = e.target.getAttribute("href");
                 this.dispatchEvent(new CustomEvent('a:location:changed', {
