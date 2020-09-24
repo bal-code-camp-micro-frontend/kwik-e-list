@@ -51,7 +51,7 @@ class ProductCard extends HTMLElement {
             item.setAttribute("href", url);
         });
 
-        document.addEventListener("click", (e) => {
+        this.shadowRoot.addEventListener("click", (e) => {
             if (e.target.nodeName === "A") {
                 const href = e.target.getAttribute("href");
                 this.dispatchEvent(new CustomEvent('a:location:changed', {
