@@ -35,8 +35,7 @@ class ProductCard extends HTMLElement {
     }
 
     fillAnchorWithUrl(item, productId) {
-
-        item.setAttribute("href", "/product/"+productId);
+        item.setAttribute("href", "/product/" + productId);
     }
 
     connectedCallback() {
@@ -47,9 +46,22 @@ class ProductCard extends HTMLElement {
         this.shadowRoot.querySelector("img").setAttribute("src", this.productImageUrl);
         this.shadowRoot.querySelector("c-add-to-cart-button").setAttribute("product-id", this.productId);
         var allAnchors = this.shadowRoot.querySelectorAll("a");
-        const url = "/product/"+this.productId;
-        allAnchors.forEach(function(item) {
+        const url = "/product/" + this.productId;
+        allAnchors.forEach(function (item) {
             item.setAttribute("href", url);
+        });
+
+        document.addEventListener("click", (e) => {
+            console.log("app-shell click");
+            if (e.target.nodeName === "A") {
+                const href = e.target.getAttribute("href");
+                this.dispatchEvent(new CustomEvent('a:location:changed', {
+                    bubbles: true,
+                    composed: true,
+                    detail: { href: href }
+                }));
+                e.preventDefault();
+            }
         });
     }
 
