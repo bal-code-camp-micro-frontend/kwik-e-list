@@ -26,10 +26,7 @@ class Recommendations extends HTMLElement {
                     </div>
                 `
         }
-        result = result + `</div>
-
-        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script src="/l/js/materialize.js"></script>`;
+        result = result + `</div>`;
 
         this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = result;
@@ -41,16 +38,18 @@ class Recommendations extends HTMLElement {
             .then(response => response.json())
             .then(data => this.render(data));
 
-        this.shadowRoot.addEventListener("click", (e) => {
-            if (e.target.nodeName === "A") {
-                const href = e.target.getAttribute("href");
-                this.dispatchEvent(new CustomEvent('a:location:changed', {
+        const allAnchors = this.shadowRoot.querySelectorAll("a");
+        const href = "/product/" + id;
+        allAnchors.forEach(function (anchor) {
+            anchor.addEventListener("click", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                window.dispatchEvent(new CustomEvent('a:location:changed', {
                     bubbles: true,
                     composed: true,
                     detail: { href: href }
                 }));
-                e.preventDefault();
-            }
+            });
         });
     }
 
