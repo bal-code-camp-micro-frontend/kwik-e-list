@@ -47,16 +47,16 @@ class ProductCard extends HTMLElement {
         this.shadowRoot.querySelector("img").setAttribute("src", this.productImageUrl);
         this.shadowRoot.querySelector("c-add-to-cart-button").setAttribute("product-id", this.productId);
         const allAnchors = this.shadowRoot.querySelectorAll("a");
-        const url = "/product/" + this.productId;
+        const href = "/product/" + this.productId;
         allAnchors.forEach(function (anchor) {
-            anchor.setAttribute("href", url);
+            anchor.setAttribute("href", href);
             anchor.addEventListener("click", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 window.dispatchEvent(new CustomEvent('a:location:changed', {
                     bubbles: true,
                     composed: true,
-                    detail: { href: "/product/" + productId }
+                    detail: { href: href }
                 }));
             });
         });
